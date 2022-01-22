@@ -45,10 +45,6 @@
                                         <label for="nilai" class="form-label">Nilai</label>
                                         <input type="text" class="form-control" name="nilai" id="nilai" value="<?= set_value('nilai') ?>">
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="grade" class="form-label">Grade</label>
-                                        <input type="text" class="form-control" name="grade" id="grade" value="<?= set_value('grade') ?>">
-                                    </div>
                                     <div class="text-end">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>

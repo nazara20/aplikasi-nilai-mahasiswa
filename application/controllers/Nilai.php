@@ -32,6 +32,7 @@ class Nilai extends CI_Controller
 			$this->load->view('nilai/create', $data);
 			$this->load->view('template/footer', $data);
 		} else {
+			
 			$data = [
 				"mahasiswa" => $this->input->post('mahasiswa', true),
 				"mata_kuliah" => $this->input->post('mata_kuliah', true),

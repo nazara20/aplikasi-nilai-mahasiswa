@@ -38,12 +38,36 @@
                     <td><?= $nli['mahasiswa']; ?></td>
                     <td><?= $nli['mata_kuliah']; ?></td>
                     <td><?= $nli['nilai']; ?></td>
-                    <td><?= $nli['grade']; ?></td>
-                    <td>
+                    <td><?php
+                        if ($nli['nilai'] >= '85') {
+                          echo "A";
+                        } elseif ($nli['nilai'] >= '75') {
+                          echo "B";
+                        } elseif ($nli['nilai'] >= '65') {
+                          echo "C";
+                        } elseif ($nli['nilai'] >= '50') {
+                          echo "D";
+                        } elseif ($nli['nilai'] <= '50') {
+                          echo "E";
+                        }
+                        ?></td>
+                   
+                   
+                   
+    
+                   
+                   
+                   
+                   
+                   
+                   <td>
                       <a onclick="return confirm('apakah anda yakin?')" href="<?= base_url(); ?>nilai/hapus/<?= $nli['id']; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                       <a href="<?= base_url(); ?>nilai/edit/<?= $nli['id']; ?>" class="btn btn-success btn-sm"><i class="fas fa-pen"></i></a>
                     </td>
                 </tr>
+
+
+
                 <?php $i++; ?>
               <?php endforeach; ?>
               </table>

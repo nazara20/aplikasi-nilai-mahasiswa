@@ -47,10 +47,6 @@
                                         <label for="nilai" class="form-label">Nilai</label>
                                         <input type="text" class="form-control" name="nilai" id="nilai" value="<?= $editnilai['nilai']; ?>">
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="grade" class="form-label">Grade</label>
-                                        <input type="text" class="form-control" name="grade" id="grade" value="<?= $editnilai['grade']; ?>">
-                                    </div>
                                     <div class="text-end">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
