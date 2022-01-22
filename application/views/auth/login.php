@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <main class="d-flex w-100">
+    <main class="d-flex w-100 bg-secondary">
         <div class="container d-flex flex-column">
             <div class="row vh-100">
                 <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
@@ -31,7 +31,7 @@
                                 <div class="m-sm-4">
                                     <form method="POST" action="<?= base_url('auth') ?>">
                                         <div class="mb-3">
-                                            <label for="username" class="form-label">username</label>
+                                            <label for="username" class="form-label">Username</label>
                                             <input value="<?= set_value('username') ?>" class="form-control form-control-lg" type="text" name="username" id="username" placeholder="Masukkan username anda" />
                                             <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
                                         </div>

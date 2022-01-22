@@ -1,4 +1,4 @@
-    <div class="container-fluid mt-5">
+<div class="container-fluid mt-5">
         <div class="row">
             <div class="col-sm-10 col-md-8 col-lg-9 mx-auto d-table h-100">
                 <div class="card">
@@ -17,8 +17,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-7 mx-auto">
-                                <div class="alert alert-info" role="alert">
-                                    Tambah Data Nilai....
+                                <div class="alert alert-primary" role="alert">
+                                    Tambah Data Nilai <?= $mahasiswaselect['nama']; ?>
                                 </div>
                                 <?php if (validation_errors()) : ?>
                                     <div class="alert alert-danger alert-dismissible fade show pb-0" role="alert">
@@ -26,16 +26,11 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                     </div>
                                 <?php endif ?>
-                                <form action="<?= base_url('nilai/create') ?>" method="post">
+                                <form action="" method="post">
+                                <input type="hidden" name="id" value="<?= $mahasiswaselect['id']; ?>">
                                     <div class="mb-3">
                                         <label for="mahasiswa" class="form-label">Mahasiswa</label>
-                                       
-                                        <select name="mahasiswa" id="mahasiswa" class="form-control">
-                                            <?php foreach ($nilaiselect as $nlis) : ?>
-                                            <option class="" value="<?= $nlis['nama']; ?>"><?= $nlis['nama']; ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                        
+                                        <input type="text" class="form-control" name="mahasiswa" id="mahasiswa" value="<?= $mahasiswaselect['nama']; ?>">
                                     </div>
                                     <div class="mb-3">
                                         <label for="mata_kuliah" class="form-label">Mata Kuliah</label>

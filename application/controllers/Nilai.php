@@ -15,7 +15,9 @@ class Nilai extends CI_Controller
 	{
 		$data['title'] = 'Nilai Mahasiswa';
 		$data['nilai'] = $this->nilai->getAllNilai();
+		$this->load->view('template/header', $data);
 		$this->load->view('nilai/index', $data);
+		$this->load->view('template/footer', $data);
 	}
 
 	public function create()
@@ -26,7 +28,9 @@ class Nilai extends CI_Controller
 		$this->form_validation->set_rules('mata_kuliah', 'Mata Kuliah', 'required|trim');
 		$this->form_validation->set_rules('nilai', 'Nilai', 'required|trim');
 		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('template/header', $data);
 			$this->load->view('nilai/create', $data);
+			$this->load->view('template/footer', $data);
 		} else {
 			$data = [
 				"mahasiswa" => $this->input->post('mahasiswa', true),
@@ -53,7 +57,9 @@ class Nilai extends CI_Controller
 		$this->form_validation->set_rules('mata_kuliah', 'Mata Kuliah', 'required|trim');
 		$this->form_validation->set_rules('nilai', 'Nilai', 'required|trim');
 		if ($this->form_validation->run() == false) {
+			$this->load->view('template/header', $data);
 			$this->load->view('nilai/edit', $data);
+			$this->load->view('template/footer', $data);
 		} else {
 			$data = [
 				"mahasiswa" => $this->input->post('mahasiswa', true),

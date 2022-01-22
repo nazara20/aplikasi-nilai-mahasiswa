@@ -8,13 +8,16 @@ class Mahasiswa extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Mahasiswa_model', 'mahasiswa');
+		$this->load->model('Nilai_model', 'nilai');
     }
 
 	public function index()
 	{
 		$data['title'] = 'Nilai Mahasiswa';
 		$data['mahasiswa'] = $this->mahasiswa->getAllMahasiswa();
+		$this->load->view('template/header', $data);
 		$this->load->view('mahasiswa/index', $data);
+		$this->load->view('template/footer', $data);
 	}
 
 	public function create()
@@ -25,7 +28,9 @@ class Mahasiswa extends CI_Controller
 		$this->form_validation->set_rules('program_studi', 'Program Studi', 'required|trim');
 		$this->form_validation->set_rules('no_hp', 'No HP', 'required|trim');
 		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('template/header', $data);
 			$this->load->view('mahasiswa/create', $data);
+			$this->load->view('template/header', $data);
 		} else {
 			$data = [
 				"nim" => $this->input->post('nim', true),
@@ -52,7 +57,9 @@ class Mahasiswa extends CI_Controller
 		$this->form_validation->set_rules('program_studi', 'Program Studi', 'required|trim');
 		$this->form_validation->set_rules('no_hp', 'No HP', 'required|trim');
 		if ($this->form_validation->run() == false) {
+			$this->load->view('template/header', $data);
 			$this->load->view('mahasiswa/edit', $data);
+			$this->load->view('template/header', $data);
 		} else {
 			$data = [
 				"nim" => $this->input->post('nim', true),
@@ -63,6 +70,34 @@ class Mahasiswa extends CI_Controller
 			$this->mahasiswa->editMahasiswa($data);
 			$this->session->set_flashdata('message', 'Data Mahasiswa berhasil diubah');
 			redirect('mahasiswa');
+		}
+	}
+
+	public function inputnilai($id)
+	{
+		$data['title'] = 'Tambah Nilai Mahasiswa';
+		$data['mahasiswaselect'] = $this->mahasiswa->getMahasiswabyId($id);
+		$this->form_validation->set_rules('mahasiswa', 'Mahasiswa', 'required|trim');
+		$this->form_validation->set_rules('mata_kuliah', 'Mata Kuliah', 'required|trim');
+		$this->form_validation->set_rules('nilai', 'Nilai', 'required|trim');
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('template/header', $data);
+			$this->load->view('mahasiswa/inputnilai', $data);
+			$this->load->view('template/footer', $data);
+		} else {
+			$data = [
+				"mahasiswa" => $this->input->post('mahasiswa', true),
+				"mata_kuliah" => $this->input->post('mata_kuliah', true),
+				"nilai" => $this->input->post('nilai', true),
+				"grade" => $this->input->post('grade', true),
+			];
+			if ($this->nilai->createNewNilai($data)) {
+				$this->session->set_flashdata('message', 'Data Nilai berhasil ditambahkan');
+				redirect('nilai');
+			} else {
+				$this->session->set_flashdata('message', 'Data Nilai gagal ditambahkan');
+				redirect('nilai');
+			}
 		}
 	}
 
