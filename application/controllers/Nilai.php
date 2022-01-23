@@ -37,7 +37,6 @@ class Nilai extends CI_Controller
 				"mahasiswa" => $this->input->post('mahasiswa', true),
 				"mata_kuliah" => $this->input->post('mata_kuliah', true),
 				"nilai" => $this->input->post('nilai', true),
-				"grade" => $this->input->post('grade', true),
 			];
 			if ($this->nilai->createNewNilai($data)) {
 				$this->session->set_flashdata('message', 'Data Nilai berhasil ditambahkan');
@@ -66,7 +65,6 @@ class Nilai extends CI_Controller
 				"mahasiswa" => $this->input->post('mahasiswa', true),
 				"mata_kuliah" => $this->input->post('mata_kuliah', true),
 				"nilai" => $this->input->post('nilai', true),
-				"grade" => $this->input->post('grade', true),
 			];
 			$this->nilai->editNilai($data);
 			$this->session->set_flashdata('message', 'Data Nilai berhasil diubah');
