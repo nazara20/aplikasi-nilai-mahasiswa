@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2022 at 11:59 AM
+-- Generation Time: Jan 23, 2022 at 02:47 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -77,22 +77,27 @@ CREATE TABLE `nilai` (
   `id` int(11) NOT NULL,
   `mahasiswa` varchar(128) NOT NULL,
   `mata_kuliah` varchar(128) NOT NULL,
-  `nilai` varchar(4) NOT NULL,
-  `grade` varchar(4) NOT NULL
+  `nilai` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `nilai`
 --
 
-INSERT INTO `nilai` (`id`, `mahasiswa`, `mata_kuliah`, `nilai`, `grade`) VALUES
-(1, 'Muhammad Nazar Abdillah', 'Pemrograman web', '90', 'A'),
-(2, 'Nurul Aulia', 'Sistem Informasi Manajemen', '80', 'B'),
-(3, 'Muhammad Ridho', 'Pemrograman Visual', '77', 'B'),
-(4, 'Iqbal Afardian', 'Bahasa Indonesia', '70', 'C'),
-(5, 'Alia Nur Zahra', 'Logika Matematika', '90', 'A'),
-(6, 'Muhammad Ridho', 'Matematika Diskrit', '70', 'C'),
-(7, 'Muhammad Nazar Abdillah', 'Sistem Informasi Manajemen', '80', 'B');
+INSERT INTO `nilai` (`id`, `mahasiswa`, `mata_kuliah`, `nilai`) VALUES
+(1, 'Muhammad Nazar Abdillah', 'Pemrograman web', '90'),
+(2, 'Nurul Aulia', 'Sistem Informasi Manajemen', '80'),
+(3, 'Muhammad Ridho', 'Pemrograman Visual', '77'),
+(4, 'Iqbal Afardian', 'Bahasa Indonesia', '70'),
+(5, 'Alia Nur Zahra', 'Logika Matematika', '90'),
+(6, 'Muhammad Ridho', 'Matematika Diskrit', '70'),
+(7, 'Muhammad Nazar Abdillah', 'Sistem Informasi Manajemen', '80'),
+(9, 'Muhammad Nazar Abdillah', 'Bahasa Indonesia', '100'),
+(10, 'Muhammad Nazar Abdillah', 'Bahasa Indonesia', '70'),
+(11, 'Nurul Aulia', 'Manajemen', '85'),
+(12, 'Muhammad Ridho', 'ABC', '40'),
+(13, 'Iqbal Afardian', 'Bahasa Indonesia', '10'),
+(14, 'Nurul Aulia', 'WEB', '100');
 
 --
 -- Indexes for dumped tables
@@ -136,7 +141,7 @@ ALTER TABLE `mahasiswa`
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
